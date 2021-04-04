@@ -1,0 +1,46 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to Framework Debugger",
+      "type": "clr",
+      "request": "launch",
+      "preLaunchTask": "Build: Framework Debug",
+      "program": "${workspaceFolder}/ProjectName/bin/Debug/x64/net472/ProjectName.exe",
+      "args": [],
+      "cwd": "${workspaceFolder}/ProjectName/bin/Debug/x64/net472",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Attach to Mono Debugger",
+      "type": "mono",
+      "request": "launch",
+      "preLaunchTask": "Build: Mono Debug",
+      "program": "${workspaceFolder}/ProjectName/bin/Debug/x64/net472/ProjectName.exe",
+      "args": [],
+      "env": {
+        "LD_LIBRARY_PATH": "${workspaceFolder}/ProjectName/bin/x64/Debug/net472/lib64",
+        "DYLD_LIBRARY_PATH": "${workspaceFolder}/ProjectName/bin/x64/Debug/net472/osx"
+      },
+      "cwd": "${workspaceFolder}/ProjectName/bin/Debug/x64/net472",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "name": "Attach to .NET 5 Debugger",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build: .NET 5 Debug",
+      "program": "${workspaceFolder}/ProjectName/bin/Debug/net5.0/ProjectName.dll",
+      "args": [],
+      "env": {
+        "LD_LIBRARY_PATH": "${workspaceFolder}/ProjectName/bin/Debug/net5.0/lib64",
+        "DYLD_LIBRARY_PATH": "${workspaceFolder}/ProjectName/bin/Debug/net5.0/osx"
+      },
+      "cwd": "${workspaceFolder}/ProjectName/bin/Debug/net5.0",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}
