@@ -4,6 +4,8 @@ Template and build tasks for developing a cross-platform multi-target .NET Frame
 
 The generated solution file will also work in regular Visual Studio.
 
+NOTE: OSX is broken right now because I need to set up MoltenVK.
+
 ## Features
 
 - Includes project boilerplate code
@@ -35,7 +37,7 @@ The generated solution file will also work in regular Visual Studio.
 - Press Ctrl-Shift-B to open the build tasks menu
 - `Framework` tasks use .NET Framework to build and run (Windows only)
 - `Mono` tasks use Mono to build and run
-- `5` tasks use .NET 5 to build and run
+- `.NET 5` tasks use .NET 5 to build and run
 - Press F5 to build and debug
 
 ## Acknowledgments
