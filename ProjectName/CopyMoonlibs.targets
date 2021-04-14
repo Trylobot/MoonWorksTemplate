@@ -18,16 +18,6 @@
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="..\moonlibs\windows\libbulletc.dll">
-			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-	<ItemGroup Condition="$(RuntimeIdentifier.Contains('win')) AND '$(Configuration)'=='Debug'">
-		<Content Include="..\moonlibs\windows\cimgui.dll">
-			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
 	</ItemGroup>
 	<ItemGroup Condition="('$(RuntimeIdentifier)' == '' AND $([MSBuild]::IsOSPlatform('Linux'))) OR $(RuntimeIdentifier.Contains('linux'))">
 		<Content Include="..\moonlibs\lib64\libFAudio.*">
@@ -39,16 +29,6 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 		<Content Include="..\moonlibs\lib64\libSDL2-2.0.*">
-			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="..\moonlibs\lib64\libbulletc.*">
-			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
-	<ItemGroup Condition="'$(Configuration)'=='Debug' AND ('$(RuntimeIdentifier)' == '' AND $([MSBuild]::IsOSPlatform('Linux'))) OR $(RuntimeIdentifier.Contains('linux'))">
-		<Content Include="..\moonlibs\lib64\libcimgui.*">
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
