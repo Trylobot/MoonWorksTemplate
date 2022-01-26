@@ -28,12 +28,12 @@ namespace ProjectName
             RenderHeight = (int)windowCreateInfo.WindowHeight;
         }
 
-        protected override void Update(double dt)
+        protected override void Update(System.TimeSpan dt)
         {
             // Insert your game update logic here.
         }
 
-        protected override void Draw(double dt, double alpha)
+        protected override void Draw(System.TimeSpan dt, double alpha)
         {
             // Replace this with your own drawing code.
 

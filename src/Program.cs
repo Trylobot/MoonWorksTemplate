@@ -15,18 +15,6 @@ namespace ProjectName
 
         static void Main(string[] args)
         {
-#if NETCOREAPP
-            DllMap.Initialise(false);
-#endif
-
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
-            {
-                SetDllDirectory(Path.Combine(
-                    AppDomain.CurrentDomain.BaseDirectory,
-                    Environment.Is64BitProcess ? "x64" : "x86"
-                ));
-            }
-
             WindowCreateInfo windowCreateInfo = new WindowCreateInfo
             {
                 WindowWidth = 1280,

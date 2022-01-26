@@ -84,7 +84,7 @@ fi
 cp -R "$MY_DIR" "$NEW_PROJECT_DIR"
 
 cd "$NEW_PROJECT_DIR"
-files=(ProjectName.Core.sln ProjectName.Framework.sln .gitignore ProjectName/ProjectName.Core.csproj ProjectName/ProjectName.Framework.csproj ProjectName/ProjectNameGame.cs ProjectName/Program.cs ProjectName/Graphics/GraphicsObjects.cs ProjectName/Graphics/Containers/Framebuffers.cs ProjectName/Graphics/Containers/RenderPasses.cs ProjectName/Graphics/Containers/RenderTargets.cs .vscode/tasks.json .vscode/launch.json)
+files=(ProjectName.sln .gitignore ProjectName.csproj src/ProjectNameGame.cs src/Program.cs src/Graphics/GraphicsObjects.cs src/Graphics/Containers/Framebuffers.cs src/Graphics/Containers/RenderPasses.cs src/Graphics/Containers/RenderTargets.cs .vscode/tasks.json .vscode/launch.json)
 for file in "${files[@]}"; do
     sed -i -e "s/ProjectName/$newProjectName/g" "./$file"
     if [ "$(uname)" == "Darwin" ]; then
@@ -92,23 +92,20 @@ for file in "${files[@]}"; do
     fi
 done
 
-mv ./ProjectName.Core.sln "./$newProjectName.Core.sln"
-mv ./ProjectName.Framework.sln "./$newProjectName.Framework.sln"
-mv ./ProjectName/ProjectName.Core.csproj "./ProjectName/$newProjectName.Core.csproj"
-mv ./ProjectName/ProjectName.Framework.csproj "./ProjectName/$newProjectName.Framework.csproj"
-mv ./ProjectName/ProjectNameGame.cs ./ProjectName/${newProjectName}Game.cs
-mv ./ProjectName "./$newProjectName"
+mv ./ProjectName.sln "./$newProjectName.sln"
+mv ./ProjectName.csproj "./$newProjectName.csproj"
+mv ./src/ProjectNameGame.cs ./src/${newProjectName}Game.cs
 rm ./install.sh
 rm ./LICENSE
 
 rm -rf .git
 git init
-git branch -m main
+git checkout -b main
+git branch -D master
 mkdir lib
 pullMoonWorks
 
-dotnet sln ${newProjectName}.Framework.sln add lib/MoonWorks/MoonWorks.csproj
-dotnet sln ${newProjectName}.Core.sln add lib/MoonWorks/MoonWorks.csproj
+dotnet sln ${newProjectName}.sln add lib/MoonWorks/MoonWorks.csproj
 
 echo "Project $newProjectName created at: "
 

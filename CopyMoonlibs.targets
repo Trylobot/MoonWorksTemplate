@@ -5,26 +5,26 @@
     	<Message Text="Runtime ID: $(RuntimeIdentifier)" Importance="high"/>
 	</Target>
 
-	<ItemGroup Condition="$(RuntimeIdentifier.Contains('win'))">
-		<Content Include="..\moonlibs\windows\FAudio.dll">
+	<ItemGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))">
+		<Content Include=".\moonlibs\windows\FAudio.dll">
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="..\moonlibs\windows\Refresh.dll">
+		<Content Include=".\moonlibs\windows\Refresh.dll">
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="..\moonlibs\windows\SDL2.dll">
+		<Content Include=".\moonlibs\windows\SDL2.dll">
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
-	<ItemGroup Condition="('$(RuntimeIdentifier)' == '' AND $([MSBuild]::IsOSPlatform('Linux'))) OR $(RuntimeIdentifier.Contains('linux'))">
-		<Content Include="..\moonlibs\lib64\libFAudio.*">
+	<ItemGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))">
+		<Content Include=".\moonlibs\lib64\libFAudio.*">
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="..\moonlibs\lib64\libRefresh.*">
+		<Content Include=".\moonlibs\lib64\libRefresh.*">
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
@@ -33,8 +33,8 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
-	<ItemGroup Condition="$(RuntimeIdentifier.Contains('osx'))">
-		<Content Include="..\moonlibs\osx\**\*.*" >
+	<ItemGroup Condition="$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))">
+		<Content Include=".\moonlibs\osx\**\*.*" >
 			<Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>

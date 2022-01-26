@@ -21,106 +21,6 @@
   },
   "tasks": [
     {
-      "label": "Build: Mono Release",
-      "command": "msbuild",
-      "args": [
-        "-restore:True",
-        "${workspaceFolder}/ProjectName.Framework.sln",
-        "-p:Configuration=Release",
-        "-p:Platform=x64"
-      ],
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": "$msCompile"
-    },
-    {
-      "label": "Run: Mono Release",
-      "command": "mono",
-      "args": [
-        "ProjectName.exe"
-      ],
-      "options": {
-        "env": {
-          "LD_LIBRARY_PATH": "./lib64",
-          "DYLD_LIBRARY_PATH": "./osx"
-        },
-        "cwd": "${workspaceFolder}/ProjectName/bin/x64/Release/net472"
-      },
-      "type": "process",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Build & Run: Mono Release",
-      "dependsOn": [
-        "Build: Mono Release",
-        "Run: Mono Release"
-      ],
-      "dependsOrder": "sequence",
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Build: Mono Debug",
-      "command": "msbuild",
-      "args": [
-        "-restore:True",
-        "${workspaceFolder}/ProjectName.Framework.sln",
-        "-p:Configuration=Debug",
-        "-p:Platform=x64"
-      ],
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Run: Mono Debug",
-      "command": "mono",
-      "args": [
-        "ProjectName.exe"
-      ],
-      "options": {
-        "env": {
-          "LD_LIBRARY_PATH": "./lib64",
-          "DYLD_LIBRARY_PATH": "./osx"
-        },
-        "cwd": "${workspaceFolder}/ProjectName/bin/x64/Debug/net472"
-      },
-      "type": "process",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Build & Run: Mono Debug",
-      "dependsOn": [
-        "Build: Mono Debug",
-        "Run: Mono Debug"
-      ],
-      "dependsOrder": "sequence",
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
       "label": "Build & Run: .NET 5 Debug",
       "type": "shell",
       "dependsOrder": "sequence",
@@ -139,7 +39,7 @@
       "command": "dotnet",
       "args": [
         "build",
-        "./ProjectName/ProjectName.Core.csproj",
+        "./ProjectName.csproj",
         "-p:SolutionDir=${workspaceFolder}/",
         "-p:Platform=x64"
       ],
@@ -161,7 +61,7 @@
           "LD_LIBRARY_PATH": "./lib64",
           "DYLD_LIBRARY_PATH": "./osx"
         },
-        "cwd": "${workspaceFolder}/ProjectName/bin/x64/Debug/net5.0"
+        "cwd": "${workspaceFolder}/bin/x64/Debug/net5.0"
       },
       "type": "process",
       "group": {
@@ -175,7 +75,7 @@
       "command": "dotnet",
       "args": [
         "build",
-        "./ProjectName/ProjectName.Core.csproj",
+        "./ProjectName.csproj",
         "--configuration",
         "Release",
         "-p:SolutionDir=${workspaceFolder}/",
@@ -199,7 +99,7 @@
           "LD_LIBRARY_PATH": "./lib64",
           "DYLD_LIBRARY_PATH": "./osx"
         },
-        "cwd": "${workspaceFolder}/ProjectName/bin/x64/Release/net5.0"
+        "cwd": "${workspaceFolder}/bin/x64/Release/net5.0"
       },
       "type": "process",
       "group": {
@@ -215,92 +115,6 @@
         "Build: .NET 5 Release",
         "Run: .NET 5 Release"
       ],
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Build: Framework Debug",
-      "command": "MsBuild.exe",
-      "args": [
-        "-restore:True",
-        "${workspaceFolder}/ProjectName.Framework.sln",
-        "-p:Configuration=Debug",
-        "-p:Platform=x64"
-      ],
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Run: Framework Debug",
-      "command": "ProjectName.exe",
-      "options": {
-        "cwd": "${workspaceFolder}/ProjectName/bin/x64/Debug/net472"
-      },
-      "type": "process",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Build & Run: Framework Debug",
-      "dependsOn": [
-        "Build: Framework Debug",
-        "Run: Framework Debug"
-      ],
-      "dependsOrder": "sequence",
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Build: Framework Release",
-      "command": "MsBuild.exe",
-      "args": [
-        "-restore:True",
-        "${workspaceFolder}/ProjectName.Framework.sln",
-        "-p:Configuration=Release",
-        "-p:Platform=x64"
-      ],
-      "type": "shell",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Run: Framework Release",
-      "command": "ProjectName.exe",
-      "options": {
-        "cwd": "${workspaceFolder}/ProjectName/bin/x64/Release/net472"
-      },
-      "type": "process",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Build & Run: Framework Release",
-      "dependsOn": [
-        "Build: Framework Release",
-        "Run: Framework Release"
-      ],
-      "dependsOrder": "sequence",
       "type": "shell",
       "group": {
         "kind": "build",

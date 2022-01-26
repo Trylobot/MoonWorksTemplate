@@ -1,11 +1,12 @@
-<Project>
-	<PropertyGroup>
-		<BaseIntermediateOutputPath>obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
-		<Platforms>x64;x86</Platforms>
-	</PropertyGroup>
-	<Import Sdk="Microsoft.NET.Sdk" Project="Sdk.props" />
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <TargetName>ProjectName</TargetName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
@@ -15,17 +16,22 @@
     <AssemblyName>ProjectName</AssemblyName>
     <RootNamespace>ProjectName</RootNamespace>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ApplicationIcon />
   </PropertyGroup>
+
   <ItemGroup>
     <Content Include="Content\**\*.*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+
+  <PropertyGroup>
+    <DefaultItemExcludes>$(DefaultItemExcludes);lib\**\*</DefaultItemExcludes>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\lib\MoonWorks\MoonWorks.csproj" />
+    <ProjectReference Include="lib\MoonWorks\MoonWorks.csproj" />
   </ItemGroup>
+
   <Import Project=".\CopyMoonlibs.targets" />
-  <Import Sdk="Microsoft.NET.Sdk" Project="Sdk.targets" />
 </Project>
