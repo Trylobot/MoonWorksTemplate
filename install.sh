@@ -105,6 +105,7 @@ git branch -D master
 mkdir lib
 pullMoonWorks
 
+dotnet sln ${newProjectName}.sln add ${newProjectName}.csproj
 dotnet sln ${newProjectName}.sln add lib/MoonWorks/MoonWorks.csproj
 
 echo "Project $newProjectName created at: "
