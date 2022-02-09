@@ -52,6 +52,8 @@ namespace ProjectName
                 Color.CornflowerBlue.ToVector4()
             );
 
+			commandBuffer.EndRenderPass();
+
             commandBuffer.QueuePresent(
                 GraphicsObjects.RenderTargets.ExampleRenderTarget.TextureSlice,
                 Filter.Nearest,
