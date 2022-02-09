@@ -54,7 +54,8 @@ namespace ProjectName
 
             commandBuffer.QueuePresent(
                 GraphicsObjects.RenderTargets.ExampleRenderTarget.TextureSlice,
-                Filter.Nearest
+                Filter.Nearest,
+				Window
             );
 
             GraphicsDevice.Submit(commandBuffer);
