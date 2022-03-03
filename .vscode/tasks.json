@@ -21,12 +21,12 @@
   },
   "tasks": [
     {
-      "label": "Build & Run: .NET 5 Debug",
+      "label": "Build & Run: .NET 6 Debug",
       "type": "shell",
       "dependsOrder": "sequence",
       "dependsOn": [
-        "Build: .NET 5 Debug",
-        "Run: .NET 5 Debug"
+        "Build: .NET 6 Debug",
+        "Run: .NET 6 Debug"
       ],
       "group": {
         "kind": "build",
@@ -35,7 +35,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Build: .NET 5 Debug",
+      "label": "Build: .NET 6 Debug",
       "command": "dotnet",
       "args": [
         "build",
@@ -51,17 +51,13 @@
       "problemMatcher": []
     },
     {
-      "label": "Run: .NET 5 Debug",
+      "label": "Run: .NET 6 Debug",
       "command": "dotnet",
       "args": [
         "./ProjectName.dll"
       ],
       "options": {
-        "env": {
-          "LD_LIBRARY_PATH": "./lib64",
-          "DYLD_LIBRARY_PATH": "./osx"
-        },
-        "cwd": "${workspaceFolder}/bin/x64/Debug/net5.0"
+        "cwd": "${workspaceFolder}/bin/x64/Debug/net6.0"
       },
       "type": "process",
       "group": {
@@ -71,7 +67,7 @@
       "problemMatcher": []
     },
     {
-      "label": "Build: .NET 5 Release",
+      "label": "Build: .NET 6 Release",
       "command": "dotnet",
       "args": [
         "build",
@@ -95,11 +91,7 @@
         "./ProjectName.dll"
       ],
       "options": {
-        "env": {
-          "LD_LIBRARY_PATH": "./lib64",
-          "DYLD_LIBRARY_PATH": "./osx"
-        },
-        "cwd": "${workspaceFolder}/bin/x64/Release/net5.0"
+        "cwd": "${workspaceFolder}/bin/x64/Release/net6.0"
       },
       "type": "process",
       "group": {
@@ -109,11 +101,11 @@
       "problemMatcher": []
     },
     {
-      "label": "Build & Run: .NET 5 Release",
+      "label": "Build & Run: .NET 6 Release",
       "dependsOrder": "sequence",
       "dependsOn": [
-        "Build: .NET 5 Release",
-        "Run: .NET 5 Release"
+        "Build: .NET 6 Release",
+        "Run: .NET 6 Release"
       ],
       "type": "shell",
       "group": {

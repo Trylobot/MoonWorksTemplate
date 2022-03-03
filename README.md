@@ -1,6 +1,6 @@
 # MoonWorksTemplate
 
-Template and build tasks for developing a cross-platform multi-target .NET Framework, Mono, and .NET 5 MoonWorks project in VSCode.
+Template and build tasks for developing a cross-platform multi-target .NET 6 MoonWorks project in VSCode.
 
 The generated solution file will also work in regular Visual Studio.
 
@@ -8,15 +8,14 @@ NOTE: OSX is broken right now because I need to set up MoltenVK.
 
 ## Features
 
-- Includes project boilerplate code
-- Build tasks for both .NET Framework, Mono, and .NET 5 side by side
+- Project boilerplate code
+- VSCode build tasks
 - VSCode debugger integration
 
 ## Requirements
 
 - [Git](https://git-scm.com/) or [Git for Windows](https://gitforwindows.org/) on Windows
-- [.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
-- [.NET Framework 4.7.2 Developer Pack](https://dotnet.microsoft.com/download/dotnet-framework/net472) on Windows
+- [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) on Windows
 - [Mono](https://www.mono-project.com/) on OSX or Linux
 - [Visual Studio Code](https://code.visualstudio.com/)
@@ -35,9 +34,7 @@ NOTE: OSX is broken right now because I need to set up MoltenVK.
 
 - Open the project directory in VSCode
 - Press Ctrl-Shift-B to open the build tasks menu
-- `Framework` tasks use .NET Framework to build and run (Windows only)
-- `Mono` tasks use Mono to build and run
-- `.NET 5` tasks use .NET 5 to build and run
+- Tasks use .NET 6.0 to build and run
 - Press F5 to build and debug
 
 ## Acknowledgments

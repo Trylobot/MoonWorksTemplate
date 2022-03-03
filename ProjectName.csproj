@@ -1,13 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <TargetName>ProjectName</TargetName>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
@@ -16,6 +10,7 @@
     <AssemblyName>ProjectName</AssemblyName>
     <RootNamespace>ProjectName</RootNamespace>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <ApplicationIcon />
   </PropertyGroup>
 

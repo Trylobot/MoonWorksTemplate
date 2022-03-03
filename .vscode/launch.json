@@ -2,13 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Attach to .NET 5 Debugger",
+      "name": "Attach to .NET 6 Debugger",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "Build: .NET 5 Debug",
-      "program": "${workspaceFolder}/bin/x64/Debug/net5.0/ProjectName.dll",
+      "preLaunchTask": "Build: .NET 6 Debug",
+      "program": "${workspaceFolder}/bin/x64/Debug/net6.0/ProjectName.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/bin/x64/Debug/net5.0",
+      "cwd": "${workspaceFolder}/bin/x64/Debug/net6.0",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }

@@ -1,17 +1,10 @@
 using MoonWorks.Graphics;
-using MoonWorks.Window;
 using MoonWorks;
-using ProjectName.Graphics;
 
 namespace ProjectName
 {
     class ProjectNameGame : Game
     {
-        private GraphicsObjects GraphicsObjects { get; }
-
-        private int RenderWidth { get; }
-        private int RenderHeight { get; }
-
         public ProjectNameGame(
             WindowCreateInfo windowCreateInfo,
             PresentMode presentMode,
@@ -19,13 +12,6 @@ namespace ProjectName
         ) : base(windowCreateInfo, presentMode, 60, debugMode)
         {
             // Insert your game initialization logic here.
-            GraphicsObjects = new GraphicsObjects(
-                GraphicsDevice,
-                windowCreateInfo.WindowWidth,
-                windowCreateInfo.WindowHeight
-            );
-            RenderWidth = (int)windowCreateInfo.WindowWidth;
-            RenderHeight = (int)windowCreateInfo.WindowHeight;
         }
 
         protected override void Update(System.TimeSpan dt)
@@ -38,29 +24,20 @@ namespace ProjectName
             // Replace this with your own drawing code.
 
             var commandBuffer = GraphicsDevice.AcquireCommandBuffer();
+			var swapchainTexture = commandBuffer.AcquireSwapchainTexture(Window);
 
             commandBuffer.BeginRenderPass(
-                GraphicsObjects.RenderPasses.ExampleRenderPass,
-                GraphicsObjects.Framebuffers.ExampleFramebuffer,
-                new Rect
-                {
-                    X = 0,
-                    Y = 0,
-                    W = RenderWidth,
-                    H = RenderHeight
-                },
-                Color.CornflowerBlue.ToVector4()
+				new ColorAttachmentInfo(swapchainTexture, Color.CornflowerBlue)
             );
 
 			commandBuffer.EndRenderPass();
 
-            commandBuffer.QueuePresent(
-                GraphicsObjects.RenderTargets.ExampleRenderTarget.TextureSlice,
-                Filter.Nearest,
-				Window
-            );
-
             GraphicsDevice.Submit(commandBuffer);
         }
+
+		protected override void OnDestroy()
+		{
+
+		}
     }
 }
