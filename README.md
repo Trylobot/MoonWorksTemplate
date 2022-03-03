@@ -17,10 +17,8 @@ NOTE: OSX is broken right now because I need to set up MoltenVK.
 - [Git](https://git-scm.com/) or [Git for Windows](https://gitforwindows.org/) on Windows
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
 - [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) on Windows
-- [Mono](https://www.mono-project.com/) on OSX or Linux
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [VSCode C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-- [VSCode Mono Debug Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) if debugging using Mono
 
 ## Installation
 
