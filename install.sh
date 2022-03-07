@@ -7,8 +7,6 @@
 # Get the directory of this script
 MY_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-MOONWORKS_VERSION=0.1.0
-
 readlinkf(){ perl -MCwd -e 'print Cwd::abs_path shift' "$1";}
 
 # Checks if git is installed
@@ -27,7 +25,7 @@ function pullMoonWorks()
     checkGit
     cd lib
     git submodule add https://gitea.moonside.games/MoonsideGames/MoonWorks.git
-    git checkout $MOONWORKS_VERSION
+    git checkout main
     cd ..
     echo "Updating to the latest release of MoonWorks..."
 	git submodule update --init --recursive
@@ -84,7 +82,7 @@ fi
 cp -R "$MY_DIR" "$NEW_PROJECT_DIR"
 
 cd "$NEW_PROJECT_DIR"
-files=(ProjectName.sln .gitignore ProjectName.csproj src/ProjectNameGame.cs src/Program.cs src/Graphics/GraphicsObjects.cs src/Graphics/Containers/Framebuffers.cs src/Graphics/Containers/RenderPasses.cs src/Graphics/Containers/RenderTargets.cs .vscode/tasks.json .vscode/launch.json)
+files=(ProjectName.sln .gitignore ProjectName.csproj src/ProjectNameGame.cs src/Program.cs .vscode/tasks.json .vscode/launch.json)
 for file in "${files[@]}"; do
     sed -i -e "s/ProjectName/$newProjectName/g" "./$file"
     if [ "$(uname)" == "Darwin" ]; then
