@@ -5,30 +5,37 @@ using MoonWorks;
 
 namespace ProjectName
 {
-    class Program
-    {
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        static extern bool SetDllDirectory(string lpPathName);
+	class Program
+	{
+		[DllImport("kernel32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+		[return: MarshalAs(UnmanagedType.Bool)]
+		static extern bool SetDllDirectory(string lpPathName);
 
 
-        static void Main(string[] args)
-        {
-            WindowCreateInfo windowCreateInfo = new WindowCreateInfo
-            {
-                WindowWidth = 1280,
-                WindowHeight = 720,
-                WindowTitle = "ProjectName",
-                ScreenMode = ScreenMode.Windowed
-            };
+		static void Main(string[] args)
+		{
+			WindowCreateInfo windowCreateInfo = new WindowCreateInfo
+			{
+				WindowWidth = 1280,
+				WindowHeight = 720,
+				WindowTitle = "ProjectName",
+				ScreenMode = ScreenMode.Windowed
+			};
 
-            ProjectNameGame game = new ProjectNameGame(
-                windowCreateInfo,
-                MoonWorks.Graphics.PresentMode.FIFORelaxed,
-                true
-            );
+			FramerateSettings framerateSettings = new FramerateSettings
+			{
+				Mode = FramerateMode.Uncapped,
+				Cap = 60
+			};
 
-            game.Run();
-        }
-    }
+			ProjectNameGame game = new ProjectNameGame(
+				windowCreateInfo,
+				MoonWorks.Graphics.PresentMode.FIFORelaxed,
+				framerateSettings,
+				true
+			);
+
+			game.Run();
+		}
+	}
 }

@@ -10,7 +10,7 @@ NOTE: OSX is broken right now because I need to set up MoltenVK.
 
 - Project boilerplate code
 - VSCode build tasks
-- VSCode debugger integration
+- VSCode step debugger integration
 
 ## Requirements
 
@@ -19,6 +19,7 @@ NOTE: OSX is broken right now because I need to set up MoltenVK.
 - [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) on Windows
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [VSCode C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+- [VSCode Omnisharp Extension](https://github.com/OmniSharp/omnisharp-vscode)
 
 ## Installation
 
@@ -33,7 +34,7 @@ NOTE: OSX is broken right now because I need to set up MoltenVK.
 - Open the project directory in VSCode
 - Press Ctrl-Shift-B to open the build tasks menu
 - Tasks use .NET 6.0 to build and run
-- Press F5 to build and debug
+- Press F5 to build and run step debugger
 
 ## Acknowledgments
 
